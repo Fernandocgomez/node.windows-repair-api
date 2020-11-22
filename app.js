@@ -20,6 +20,7 @@ mongoose.connect(mongoUrl, {
 mongoose.Promise = global.Promise;
 
 // Import routes
+const leadRoutes = require("./src/routes/lead");
 
 // Middlewares
 const MiddleWares = require("./src/middlewares/errorHandlers");
@@ -35,6 +36,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Routes
+app.use("/leads", leadRoutes);
 
 // Error handlers
 app.use(MiddleWares.errorHandler);
